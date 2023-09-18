@@ -1,0 +1,6 @@
+program "Pull-Up Unlocked + Isometrics"
+  day(1):
+    - pull-ups (3xRM, 5min)
+    - overcoming-iso-pulls (6x6s+6s, 15s/45s-1min)
+    - yielding-iso-pulls (3x30s-60s, 60s)
+end
