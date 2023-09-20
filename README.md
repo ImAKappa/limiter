@@ -4,6 +4,25 @@ Limiter is a exercise program interpreter and management tool
 
 > The name is a reference to the concept of a limiter from One Punch Man!
 
+## Usage
+
+```bash
+limiter --record pull-day.workout
+```
+
+It will then prompt you to select a `day` from the program input
+
+Then it will prompt you for data for each exercise
+
+Then it will produce a CSV file with these columns:
+
+- Program
+- Day
+- Exercise
+- Performance (Reps/Duration, etc) in notation `a/b/c`
+
+Ideally, it does progress reports using Polars
+
 
 ## Workout Notation
 
