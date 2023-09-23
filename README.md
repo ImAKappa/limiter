@@ -192,7 +192,7 @@ Rules:
 
 Reccomendations:
 
-- Use `kebab-case`
+- Use `snake_case`
 
 ### Programs
 
