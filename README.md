@@ -2,7 +2,50 @@
 
 Limiter is a exercise program interpreter and management tool
 
-> The name is a reference to the concept of a limiter from One Punch Man!
+## Exercise Terminology
+
+### Muscle & Muscle Groups
+
+Muscle is a tissue composed of bundles of protein called muscle fibres.
+These cells have a special property where they can contract and relax in response to electrical and chemical stimulation.
+The contraction and relaxtion of muscles enables people to walk, run, dance, sing, eat, twerk, mime, fight, juggle, digest food, and more.
+
+There are various kinds of muscles, but for exercising we mostly care about skeletal muscle[^1][^2].
+
+[^1]: We care about joints, too. But they are beyond the scope of this discussion. See [Bursae and Tendon Sheaths (Medicine LibreTexts)](https://med.libretexts.org/Bookshelves/Anatomy_and_Physiology/Anatomy_and_Physiology_(Boundless)/8%3A_Joints/8.4%3A_Synovial_Joints/8.4C%3A_Bursae_and_Tendon_Sheaths) for physiology of particular joints, and see [Bruce Lee and the IsoChain (NoLimitSquad)](https://www.youtube.com/watch?v=ALaoOLumD4Y&t=1097s) for a particular technique for strengthening joints.
+
+[^2]: We also care about neuromuscular adaption, but this is also beyond the scope of this discussion. See [Rate Coding Explained (The Movement System)](https://www.youtube.com/watch?v=eJLkrdozT6Q) for an introduction, and [Principles of Neural Science (Kandel et al. 2013)](https://archive.org/details/PrinciplesOfNeuralScienceFifthKANDEL/page/n9/mode/2up), Chapter 34 on Motor Units, for more detail.
+
+See [How Your Muscles Change With Exercise (Institute of Human Anatomy)](https://www.youtube.com/watch?v=2vXOq-aRtYY) for more details.
+
+Muscle groups are groups of muscles. See this webpage on [Muscle Groups (National Cancer Institute)](https://training.seer.cancer.gov/anatomy/muscular/groups/) for more details.
+
+### Exercise
+
+A pattern movement intended to stimulate a muscle/muscle group. Some types of exercises include:
+
+- Compound: An exercise that targets multiple muscle groups, like pull ups
+- Isometric: An exercise that involves maintaining the contraction length of your muscles, like pushing a wall with maximum effort 
+- Isolation: An exercise that targets a specific muscle groups, like dumbell curls
+
+### Rep
+
+A repetition of an exercise
+
+### Set
+
+A set of repetitions of an exercise
+
+### Superset
+
+A set of sets
+
+### Program
+
+A schedule of various sets and/or supersets, typically grouped by day and muscle groups.
+
+
+
 
 ## Usage
 
@@ -126,3 +169,7 @@ iso_pushup = 3x10s,20s
 
 end
 ```
+
+## Notes
+
+> The name is a reference to One Punch Man
