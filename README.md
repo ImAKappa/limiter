@@ -30,7 +30,7 @@ There are various kinds of muscles, but for exercising we mostly care about skel
 
 Muscle groups are groups of muscles[^3]. See this webpage on [Muscle Groups (National Cancer Institute)](https://training.seer.cancer.gov/anatomy/muscular/groups/) for more details.
 
-[^3]: (Relevant xkcd)[https://xkcd.com/703/]
+[^3]: [Relevant xkcd](https://xkcd.com/703/)
 
 ### Exercise
 
