@@ -5,7 +5,7 @@ Limiter is a exercise program interpreter and management tool
 ## Usage
 
 ```bash
-limiter --record pull-day.workout
+limiter --record push-program.wrk
 ```
 
 The program then prompts you to select a `day` from the program input,
