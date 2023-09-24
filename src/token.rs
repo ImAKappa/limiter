@@ -1,6 +1,17 @@
 pub enum Token {
     // Single-character Tokens
-    Mul,
+    Cross,
+    Plus,
+    Slash,
+    Minus,
+    LParen,
+    RParen,
+    Comma,
+    
     // Literals
-    Number(u64),
+    Number {
+        scale: u64,
+        unit: String,
+    },
+    Note(String),
 }
