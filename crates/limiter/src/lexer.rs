@@ -25,6 +25,15 @@ pub(crate) enum SyntaxKind {
     #[token("super")]
     SuperKw,
 
+    #[token("week")]
+    WeekKw,
+
+    #[token("day")]
+    DayKw,
+
+    #[token("ex")]
+    ExKw,
+
     #[token("end")]
     EndKw,
 
@@ -46,6 +55,24 @@ pub(crate) enum SyntaxKind {
 
     #[token(")")]
     RParen,
+
+    #[token("[")]
+    LSqBracket,
+
+    #[token("]")]
+    RSqBracket,
+
+    #[token(",")]
+    Comma,
+
+    #[token(";")]
+    Semicolon,
+
+    #[token("#")]
+    Pound,
+
+    #[token("@")]
+    At,
 }
 
 #[cfg(test)]
@@ -64,6 +91,7 @@ mod tests {
         check("   ", SyntaxKind::Whitespace);
     }
 
+    // Literals
     #[test]
     fn lex_alphabetic_identifier() {
         check("abcd", SyntaxKind::Ident);
@@ -85,12 +113,6 @@ mod tests {
     }
 
     #[test]
-    fn lex_schedule() {
-        check("#w1d1", SyntaxKind::Schedule);
-        check("#w123d4536", SyntaxKind::Schedule);
-    }
-
-    #[test]
     fn lex_set() {
         check("3x", SyntaxKind::Set);
         check("3000x", SyntaxKind::Set);
@@ -100,6 +122,8 @@ mod tests {
     fn lex_number() {
         check("123456", SyntaxKind::Number);
     }
+
+    // Keywords
 
     #[test]
     fn lex_program_keyword() {
@@ -112,9 +136,26 @@ mod tests {
     }
 
     #[test]
+    fn lex_week_keyword() {
+        check("week", SyntaxKind::WeekKw);
+    }
+
+    #[test]
+    fn lex_day_keyword() {
+        check("day", SyntaxKind::DayKw);
+    }
+
+    #[test]
+    fn lex_exercise_keyword() {
+        check("ex", SyntaxKind::ExKw);
+    }
+
+    #[test]
     fn lex_end_keyword() {
         check("end", SyntaxKind::EndKw);
     }
+
+    // Single-Character Tokens
 
     #[test]
     fn lex_plus() {
@@ -144,5 +185,35 @@ mod tests {
     #[test]
     fn lex_right_parenthesis() {
         check(")", SyntaxKind::RParen);
+    }
+
+    #[test]
+    fn lex_left_square_bracket() {
+        check("[", SyntaxKind::LSqBracket);
+    }
+
+    #[test]
+    fn lex_right_square_bracket() {
+        check("]", SyntaxKind::RSqBracket);
+    }
+
+    #[test]
+    fn lex_comma() {
+        check(",", SyntaxKind::Comma);
+    }
+
+    #[test]
+    fn lex_semicolon() {
+        check(";", SyntaxKind::Semicolon);
+    }
+
+    #[test]
+    fn lex_pound() {
+        check("#", SyntaxKind::Pound);
+    }
+
+    #[test]
+    fn lex_at_sign() {
+        check("@", SyntaxKind::At);
     }
 }
