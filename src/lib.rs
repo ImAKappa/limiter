@@ -1,4 +1,6 @@
 pub mod exercise;
+pub mod token;
+pub mod lexer;
 
 use exercise::Exercise;
 use regex::Regex;
