@@ -1,18 +1,22 @@
 # limiter
 
-Limiter is a exercise program interpreter and management tool
+Limiter is a language and exercise management tool.
+
+The goal is to specify a language with which it is convenient to accurately and concisely record workouts.
+
+
+Additionally, having a formally defined language makes it easier to automatically:
+
+- generate progress reports
+- convert records to a long-term storage solutions (like a CSV, spreadsheet, or a database)
+
+> Note: The design might be biased towards calisthenics bc that's what I do
 
 ## Usage
 
 ```bash
-limiter --record push-program.wrk
+limiter --progress workout-history.wrk
 ```
-
-The program then prompts you to select a `day` from the program input,
-and to record your performance for each exercise.
-
-Next, it produces a CSV file to store your data.
-From these CSV files, `limiter` can generate progress reports.
 
 ## Exercise Terminology
 
@@ -114,7 +118,7 @@ A set of 5 reps, then a set of 6 reps, then a set of 5 reps
 
 3 sets of 80% of your Rep Maximum
 ```
-3x80%RM
+3xRM%80
 ```
 
 3 sets of a variable number of reps, min 5 and max 8
@@ -183,50 +187,91 @@ A set of 5 reps, then a set of 6 reps, then a set of 5 reps
 3x30s@9kg; 15s
 ```
 
-### Programs
+### Exercises
 
-We can define programs using a simple markup language
+Define exercises using the `ex` keyword
 
-> Markup languages are good for describing the _structure_ of something
-
-
-Time
-- Weeks
-- Days
-- Durations
-
-Progressions & Variations
-```rust
-// exercise without variations
-ex pushups
-
-// Variations are unordered!
-// You can optionally specify a default
-// ex <ident>[<default>](<variation>)
-ex pushups[Regular](Wall, Knee, Regular, Archer, IsoLower, IsoUpper, Diamond, Handstand, Planche, OneArm)
+```js
+ex Pushups
 ```
 
+When referencing an exercise, you can optionally specifiy a variation (you can include whitespace)
+
 ```rust
-// push-plan-example.wrk
-program Push
-    week#1
-        day#1
-            super A
-                pushups(Archer): 3x12
-                pushups: 3x10
-            end
+Pushups(Archer)
 
-            super B
-                pushups(Diamond): 3x8-10
-                pushups(IsoLow): 3x10s; 20s
-            end
+Pushups(One Arm)
 
-            pushups(OneArm): 3x6s+6s; 15s
-        end
+Pushups(Planche)
 
-        day#2
-            ...
-        end
-    end
-end
+Pushups(Handstand)
+
+Pushups(Wall)
+
+Pushups(Knee)
+```
+
+### Targets vs Actual
+
+You can indicate a target for an exercise using `>>`
+
+```rust
+Pushups >> 3x20
+```
+
+Record your actual performance using
+
+```rust
+Pushups: 12/14/8
+```
+
+Optionally, you can specify both the target and actual in one line.
+This is more useful if your target is rapidly changing over a few sessions.
+
+```rust
+Pushups >> 3x20 : 12/14/18
+```
+
+### Sessions
+
+Use `start [Session Name] [Date], [Time]` to indicate the start of a session, and `end [Time]` for the end
+
+```rust
+start Push 2023-09-22, 20:36
+
+...
+
+end 21:40
+```
+
+### Notes
+
+You can include notes on any line, using `[]`
+
+If you want to include a url in your notes, wrap the url in `<>`
+
+> If you want to use the `<` or `>` symbol literally, then escape using backslash `\`
+
+### Examples
+
+Sample "Push" day
+
+```rust
+// push-day-example.wrk
+
+let tempo = 45s; 15s 
+
+start Push 2022-09-23 20:00 [<https://youtu.be/asIIiww53-w?si=VTHyNoBpETqQyfYU>]
+    Pushups
+    | [One Arm Assisted]: 22s+22s; 15s
+    | Archer: tempo
+    | [With 90deg Hold]: tempo
+    | Explosive: tempo
+    | Diamond: tempo
+    | Pushups: tempo
+    | Incline: tempo
+    | Knee: tempo
+
+    Plank >> 2min : 90s
+end 20:30
 ```
