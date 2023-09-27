@@ -1,6 +1,8 @@
 use logos::Logos;
 use num_derive::{FromPrimitive, ToPrimitive};
 
+// TODO: Update token types and tests, based on revised syntax
+
 #[derive(Debug, Copy, Clone, PartialEq, Logos, FromPrimitive, ToPrimitive)]
 pub(crate) enum SyntaxKind {
     Root,

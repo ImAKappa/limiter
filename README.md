@@ -258,20 +258,27 @@ Sample "Push" day
 
 ```rust
 // push-day-example.wrk
+routine Push [<https://youtu.be/asIIiww53-w?si=VTHyNoBpETqQyfYU>]
 
-let tempo = 45s; 15s 
-
-start Push 2022-09-23 20:00 [<https://youtu.be/asIIiww53-w?si=VTHyNoBpETqQyfYU>]
-    Pushups
-    | [One Arm Assisted]: 22s+22s; 15s
-    | Archer: tempo
-    | [With 90deg Hold]: tempo
-    | Explosive: tempo
-    | Diamond: tempo
-    | Pushups: tempo
-    | Incline: tempo
-    | Knee: tempo
+    let tempo = 45s; 15s
+    
+    ex Pushups
+    | [One Arm Assisted] >> 22s+22s; 15s
+    | Archer >> tempo
+    | [With 90deg Hold] >> tempo
+    | Explosive >> tempo
+    | Diamond >> tempo
+    | Pushups >> tempo
+    | Incline >> tempo
+    | Knee >> tempo
 
     Plank >> 2min : 90s
+end
+
+
+start Push 2022-09-23 20:00
 end 20:30
+
+start Push 2022-09-27 19:00
+end 19:30
 ```
