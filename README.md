@@ -112,6 +112,11 @@ A set of 5 reps, then a set of 6 reps, then a set of 5 reps
 3xRM
 ```
 
+3 sets of 80% of your Rep Maximum
+```
+3x80%RM
+```
+
 3 sets of a variable number of reps, min 5 and max 8
 
 ```
@@ -121,37 +126,43 @@ A set of 5 reps, then a set of 6 reps, then a set of 5 reps
 3 sets of 5 reps, using an 9kg weight
 
 ```
-3x5(9kg)
+3x5@9kg
 ```
 
 3 sets of 5 reps, using a 20lbs weight
 
 ```
-3x5(20lbs)
+3x5@20lbs
 ```
 
 3 sets of 8 reps, with a 60 second break
 
 ```
-3x8, 60s
+3x8; 60s
+```
+
+3 sets of 8 reps, with a 15 second break between reps, and a 60 second break between sets
+
+```
+3x8; 60s, 15s
 ```
 
 3 sets of 40 seconds with 15 second break
 
 ```
-3x40s, 15s
+3x40s; 15s
 ```
 
 3 sets of 40 seconds, with 2 minute break
 
 ```
-3x40s, 2min
+3x40s; 2min
 ```
 
-3 sets of 40 seconds on each side, with 15 second break
+3 sets of 40 seconds on each side, with 15 second break between sets
 
 ```
-3x40s+40s, 15s
+3x40s+40s; 15s
 ```
 
 3 sets of Duration Maximum
@@ -163,36 +174,14 @@ A set of 5 reps, then a set of 6 reps, then a set of 5 reps
 3 sets, but each set has a different duration. Break for 15s between every set
 
 ```
-30s/20s/10s, 15s
+30s/20s/10s; 15s
 ```
 
 3 sets of 30 seconds, using a 9kg weight. Break for 15s between each set
 
 ```
-3x30s(9kg), 15s
+3x30s@9kg; 15s
 ```
-
-### Keywords
-
-- `start` start of a program context
-- `week` start of a week context
-- `day` start of day context
-- `super` start of super-set context
-- `end` end of a context
-
-### Identifiers
-
-Rules:
-
-- Must start with a letter or underscore
-- Cannot start with a number
-- Must only contain alpha-numeric characters (`A-Z`, `a-z`, `0-9`) and underscores (`_`)
-- Identifier names are case sensitive
-- Cannot be any of the keywords
-
-Reccomendations:
-
-- Use `snake_case`
 
 ### Programs
 
@@ -200,25 +189,44 @@ We can define programs using a simple markup language
 
 > Markup languages are good for describing the _structure_ of something
 
+
+Time
+- Weeks
+- Days
+- Durations
+
+Progressions & Variations
+```rust
+// exercise without variations
+ex pushups
+
+// Variations are unordered!
+// You can optionally specify a default
+// ex <ident>[<default>](<variation>)
+ex pushups[Regular](Wall, Knee, Regular, Archer, IsoLower, IsoUpper, Diamond, Handstand, Planche, OneArm)
+```
+
 ```rust
 // push-plan-example.wrk
-start("Push")
-    day(1)
-        super("A")
-            pushups: 3x12
-            archer: 3x10
+program Push
+    week#1
+        day#1
+            super A
+                pushups(Archer): 3x12
+                pushups: 3x10
+            end
+
+            super B
+                pushups(Diamond): 3x8-10
+                pushups(IsoLow): 3x10s; 20s
+            end
+
+            pushups(OneArm): 3x6s+6s; 15s
         end
 
-        super("B")
-            diamond: 3x8-10
-            iso_pushup("Lower angle"): 3x10s, 20s
+        day#2
+            ...
         end
-
-        one_arm_pushup: 3xRM
-    end
-
-    day(2)
-        ...
     end
 end
 ```

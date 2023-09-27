@@ -1,5 +1,7 @@
 pub mod exercise;
 mod lexer;
+pub mod parser;
+mod syntax;
 
 use exercise::Exercise;
 use regex::Regex;
